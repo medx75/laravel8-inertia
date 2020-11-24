@@ -31,8 +31,6 @@
     RewriteRule ^ %1 [L,R=301]
 
     # Redirects 
-    Redirect 301 /roney_palace_statistics /inventory
-    Redirect 301 /sister-sites  /
 
     # Handle Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
