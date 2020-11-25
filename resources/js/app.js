@@ -20,7 +20,9 @@ Vue.config.productionTip = false
 Vue.mixin({ methods: { route: window.route } })
 
 import store from './utils/store.js'
-Vue.use(store) 
+Vue.use(store)
+import helpers from './utils/helpers';
+Vue.use(helpers)
 
 let app = document.getElementById('app')
 

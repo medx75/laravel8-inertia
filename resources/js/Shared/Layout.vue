@@ -9,7 +9,6 @@
 
 <script>
 import HeaderMenu from '@/Shared/HeaderMenu'
-import store from '@/utils/store.js'
 
 export default {
     components: {
@@ -23,7 +22,7 @@ export default {
     watch: {
         '$page.props.user.id': {
             handler(oldval, newval) {
-                (this.$page.props.user !== null)  ? this.$store.logged = true :  this.$store.logged = false;
+                this.$helpers.checkAuth(this.$page.props.user,this.$store);
             },
         },
     },
@@ -33,8 +32,7 @@ export default {
         },
     },
     created: function() {
-        (this.$page.props.user !== null) ? this.$store.logged = true :  this.$store.logged = false;
-        ((this.$page.props.user !== null)&&(this.$page.props.user.adm == 1))  ? this.$store.adm = true :  this.$store.adm = false;
+        this.$helpers.checkAuth(this.$page.props.user,this.$store);
     }
 }
 
